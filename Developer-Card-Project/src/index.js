@@ -7,14 +7,28 @@ const cardData = {
   name: "S. M. Hasib",
   description:
     " Full_stack web developer and teacher at Udemny. WHen not coding  or preparing a course, I like to play board games, to cook ( and eat) , or to just enjoy the Portuguese sun at the beach.",
-  skills: [
-    " HTML + CSS 💪",
-    "javaScript 💪",
-    "Web Design 💪",
-    "Git and Github 👍",
-    "React 💪",
-    "Svelte 👧",
-  ],
+  skills: {
+    skill: [
+      " HTML + CSS",
+      "javaScript",
+      "Web Design",
+      "Git and Github",
+      "React",
+      "Svelte",
+    ],
+    emoji: {
+      like: "👍",
+      strong: "💪",
+      babyface: "👧",
+    },
+    backgroud: {
+      blue: "blue",
+      green: "green",
+      yellow: "yellow",
+      magenta: "magenta",
+      tomato: "tomato",
+    },
+  },
 };
 
 function App() {
@@ -41,34 +55,52 @@ function Data() {
     <div className="data">
       <h1>{cardData.name}</h1>
       <p>{cardData.description}</p>
-      <Skill />
+      <SkillList />
     </div>
   );
 }
-function Skill() {
+
+function SkillList() {
   return (
     <div className="skill-list">
-      <div style={{ backgroundColor: "red" }} className="skill">
-        {cardData.skills[0]}
-      </div>
-      <div style={{ backgroundColor: "yellow" }} className="skill">
-        {cardData.skills[1]}
-      </div>
-      <div style={{ backgroundColor: "green" }} className="skill">
-        {cardData.skills[2]}
-      </div>
-      <div style={{ backgroundColor: "magenta" }} className="skill">
-        {cardData.skills[3]}
-      </div>
-      <div style={{ backgroundColor: "lightblue" }} className="skill">
-        {cardData.skills[4]}
-      </div>
-      <div style={{ backgroundColor: "red" }} className="skill">
-        {cardData.skills[4]}
-      </div>
-      <div style={{ backgroundColor: "tomato" }} className="skill">
-        {cardData.skills[5]}
-      </div>
+      <Skill
+        skill={cardData.skills.skill[0]}
+        emoji={cardData.skills.emoji.like}
+        color={cardData.skills.backgroud.blue}
+      />
+      <Skill
+        skill={cardData.skills.skill[1]}
+        emoji={cardData.skills.emoji.like}
+        color={cardData.skills.backgroud.green}
+      />
+      <Skill
+        skill={cardData.skills.skill[2]}
+        emoji={cardData.skills.emoji.like}
+        color={cardData.skills.backgroud.yellow}
+      />
+      <Skill
+        skill={cardData.skills.skill[3]}
+        emoji={cardData.skills.emoji.like}
+        color={cardData.skills.backgroud.magenta}
+      />
+      <Skill
+        skill={cardData.skills.skill[4]}
+        emoji={cardData.skills.emoji.like}
+        color={cardData.skills.backgroud.blue}
+      />
+      <Skill
+        skill={cardData.skills.skill[5]}
+        emoji={cardData.skills.emoji.like}
+        color={cardData.skills.backgroud.tomato}
+      />
+    </div>
+  );
+}
+function Skill(props) {
+  return (
+    <div className="skill" style={{ backgroundColor: props.color }}>
+      <span>{props.skill}</span>
+      <span>{props.emoji}</span>
     </div>
   );
 }
