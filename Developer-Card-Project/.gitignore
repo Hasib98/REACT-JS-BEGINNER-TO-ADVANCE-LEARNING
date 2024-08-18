@@ -2,9 +2,6 @@
 
 # dependencies
 /node_modules
-/**/node_modules
-/**/.vscode
-/Code_Source_File_From_Udemy
 /.pnp
 .pnp.js
 
