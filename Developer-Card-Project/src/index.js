@@ -22,11 +22,12 @@ const cardData = {
       babyface: "👧",
     },
     backgroud: {
-      blue: "blue",
+      blue: "#4B70F5",
       green: "green",
       yellow: "yellow",
       magenta: "magenta",
       tomato: "tomato",
+      orangered: "orangered",
     },
   },
 };
@@ -86,7 +87,7 @@ function SkillList() {
       <Skill
         skill={cardData.skills.skill[4]}
         emoji={cardData.skills.emoji.like}
-        color={cardData.skills.backgroud.blue}
+        color={cardData.skills.backgroud.orangered}
       />
       <Skill
         skill={cardData.skills.skill[5]}
