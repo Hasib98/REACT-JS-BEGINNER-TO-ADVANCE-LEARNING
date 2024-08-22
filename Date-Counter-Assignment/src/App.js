@@ -11,6 +11,8 @@ export default function App() {
 function Counter() {
   const [count, setCount] = useState(0);
   const [step, setStep] = useState(1);
+  const [warning, setWarning] = useState("");
+
   const date = new Date();
   date.setDate(date.getDate() + count);
 
@@ -26,16 +28,45 @@ function Counter() {
   function handleCountSub() {
     setCount((c) => c - step);
   }
+  function handleReset() {
+    setStep(1);
+    setCount(0);
+    setWarning("");
+  }
+  function showWarning(value) {
+    setCount(value);
+    setWarning("");
+  }
   return (
     <div className="counter">
-      <div>
+      <div className="space">
+        <input
+          type="range"
+          min="0"
+          max="10"
+          value={step}
+          onChange={(e) => setStep(Number(e.target.value))}
+        />
+        <span>{step}</span>
+      </div>
+      <div className="space">
         <button onClick={handleStepSub}>-</button>
         <span>Step: {step}</span>
         <button onClick={handleStepAdd}>+</button>
       </div>
-      <div>
+      <div className="space">
         <button onClick={handleCountSub}>-</button>
-        <span>Count: {count}</span>
+        <input
+          type="text"
+          value={count}
+          onChange={(e) =>
+            !isNaN(Number(e.target.value))
+              ? showWarning(Number(e.target.value))
+              : setWarning(
+                  "🤦‍♀️ Ops..!! You entered text, please Enter only digits"
+                )
+          }
+        />
         <button onClick={handleCountAdd}>+</button>
       </div>
       <p>
@@ -48,6 +79,14 @@ function Counter() {
         </span>
         <span>{date.toDateString()}</span>
       </p>
+      {count !== 0 || step !== 1 ? (
+        <div>
+          <button onClick={handleReset}>reset</button>
+        </div>
+      ) : null}
+      <div>
+        <p>{warning}</p>
+      </div>
     </div>
   );
 }
