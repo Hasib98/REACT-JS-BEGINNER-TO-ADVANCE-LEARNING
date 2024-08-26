@@ -33,6 +33,17 @@ body {
   align-items: start;
 }
 
+@media only screen and (max-width: 600px) {
+  .app {
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.9);
+    grid-template-rows: 34rem 44rem;
+    row-gap: 4rem;
+    align-items: center;
+  }
+}
+
 .button {
   background-color: var(--color-medium);
   color: #343a40;
