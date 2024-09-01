@@ -1,26 +1,17 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-// import App from "./App";
-// import "./index.css";
-import StarRating from "./StarRating";
-import CircleRating from "./CircleRating";
+import App from "./App";
+import "./index.css";
+// import StarRating from "./StarRating";
+// import CircleRating from "./CircleRating";
 
-function Test() {
-  const [movieRating, setMovieRating] = useState(0);
-  return (
-    <div>
-      <StarRating color="magenta" maxRating={10} onSetRating={setMovieRating} />
-      <p>This movie was rated {movieRating} stars</p>
-    </div>
-  );
-}
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <Test />
+    <App />
+    {/* <Test />
 
-    {/* <StarRating
+    <StarRating
       maxRating={5}
       messages={["terrible", "bad", "okey", "good", "amazing"]}
     />
@@ -30,8 +21,18 @@ root.render(
       color="#ff7979"
       className="test"
       defaultRating={3}
-    /> */}
+    />
 
-    <CircleRating />
+    <CircleRating /> */}
   </React.StrictMode>
 );
+
+/* function Test() {
+  const [movieRating, setMovieRating] = useState(0);
+  return (
+    <div>
+      <StarRating color="magenta" maxRating={10} onSetRating={setMovieRating} />
+      <p>This movie was rated {movieRating} stars</p>
+    </div>
+  );
+} */
