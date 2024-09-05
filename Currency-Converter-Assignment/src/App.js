@@ -12,7 +12,7 @@ function CurrencyConverter() {
   const [currency, setCurrency] = useState(1);
   const [fromCur, setFromCur] = useState("USD");
   const [toCur, setToCur] = useState("EUR");
-  const [amount, setAmount] = useState("Test");
+  const [amount, setAmount] = useState("");
 
   useEffect(() => {
     console.log("test");
@@ -43,12 +43,14 @@ function CurrencyConverter() {
         <option value="EUR">EUR</option>
         <option value="CAD">CAD</option>
         <option value="INR">INR</option>
+        <option value="JPY">JPY</option>
       </select>
       <select value={toCur} onChange={(e) => setToCur(e.target.value)}>
         <option value="USD">USD</option>
         <option value="EUR">EUR</option>
         <option value="CAD">CAD</option>
         <option value="INR">INR</option>
+        <option value="JPY">JPY</option>
       </select>
 
       <p>
