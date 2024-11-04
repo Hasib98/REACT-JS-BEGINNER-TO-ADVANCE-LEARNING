@@ -6,10 +6,12 @@ export function useMovies(query) {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+
   useEffect(
     function () {
       //   callback?.();
       const controller = new AbortController();
+      // const signal = controller.signal;
       async function fetchMovies() {
         try {
           setIsLoading(true);
@@ -18,6 +20,7 @@ export function useMovies(query) {
             `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
             { signal: controller.signal }
           );
+
           if (!res.ok)
             throw new Error("Something went wrong with fetching movies");
 
