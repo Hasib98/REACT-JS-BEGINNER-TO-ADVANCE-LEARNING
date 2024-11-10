@@ -1,0 +1,5 @@
+{
+  "extends": "react-app"
+}
+// npm i eslint v
+// ite-plugin-eslint eslint-config-react-app --save-dev
